@@ -12,6 +12,8 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
+//*---------------------------------------
+
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
@@ -28,6 +30,10 @@ export const register = createAsyncThunk(
     }
   }
 );
+
+
+//*---------------------------------------
+
 
 export const logIn = createAsyncThunk(
   'auth/login',
@@ -46,6 +52,9 @@ export const logIn = createAsyncThunk(
   }
 );
 
+//*---------------------------------------
+
+
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
@@ -58,15 +67,21 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   }
 });
 
+
+//*---------------------------------------
+
+
 export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
 
+
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
+
 
     try {
       setAuthHeader(persistedToken);
@@ -76,6 +91,7 @@ export const refreshUser = createAsyncThunk(
       toast.error('Something went wrong, please try reloading the page', {
         duration: 5000,
       });
+      
       return thunkAPI.rejectWithValue(error.message);
     }
   }

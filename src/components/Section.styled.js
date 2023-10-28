@@ -18,6 +18,13 @@ export const SectionTitle = styled.h1`
   margin-bottom: 40px;
 `;
 
+export const SectionText = styled.p`
+  font-size: 28px;
+  text-align: center;
+  color: black;
+`;
+
+
 export const SectionSecondTitle = styled.h2`
   font-size: 42px;
   text-align: center;
@@ -31,8 +38,3 @@ export const LoginTitle = styled(SectionSecondTitle)`
   margin-bottom: 80px;
 `;
 
-export const SectionText = styled.p`
-  font-size: 28px;
-  text-align: center;
-  color: black;
-`;

@@ -1,5 +1,7 @@
 import { AuthNavWrap, StyledNavLink } from './AuthNavigation.styled';
 
+//права панель навігації, реєстрація + вхід
+
 export const AuthNavigation = () => {
   return (
     <AuthNavWrap>

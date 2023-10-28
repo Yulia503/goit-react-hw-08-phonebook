@@ -4,6 +4,8 @@ import toast from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
+//*-----------------------------------------
+
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
@@ -11,13 +13,15 @@ export const fetchContacts = createAsyncThunk(
       const { data } = await axios.get('/contacts');
       return data;
     } catch (error) {
-      toast.error('Something went wrong, please try reloading the page', {
+      toast.error('Opps, something went wrong! Please, reloade your page and try again', {
         duration: 5000,
       });
       thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+//*-----------------------------------------
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
@@ -26,13 +30,16 @@ export const addContact = createAsyncThunk(
       const { data } = await axios.post('/contacts', newContact);
       return data;
     } catch (error) {
-      toast.error('Something went wrong, please try reloading the page', {
+      toast.error('Opps, something went wrong! Please, reloade your page and try again', {
         duration: 5000,
       });
       thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+
+//*-----------------------------------------
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
@@ -41,7 +48,7 @@ export const deleteContact = createAsyncThunk(
       const { data } = await axios.delete(`/contacts/${id}`);
       return data.id;
     } catch (error) {
-      toast.error('Something went wrong, please try reloading the page', {
+      toast.error('Opps, something went wrong! Please, reloade your page and try again', {
         duration: 5000,
       });
       thunkAPI.rejectWithValue(error.message);

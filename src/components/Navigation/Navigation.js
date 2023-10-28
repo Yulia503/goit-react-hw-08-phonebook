@@ -4,6 +4,8 @@ import {
   StyledNavLink,
 } from 'components/AuthNavigation/AuthNavigation.styled';
 
+
+
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
@@ -12,5 +14,7 @@ export const Navigation = () => {
       <StyledNavLink to="/">Home</StyledNavLink>
       {isLoggedIn && <StyledNavLink to="/contacts">Contacts</StyledNavLink>}
     </NavWrap>
+
+    
   );
 };

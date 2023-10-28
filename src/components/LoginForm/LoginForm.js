@@ -10,6 +10,7 @@ import { logIn } from 'redux/auth/operations';
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
+  //прописуємо варіант якщо пароль і логін схоляться з тимищо є в LS
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;

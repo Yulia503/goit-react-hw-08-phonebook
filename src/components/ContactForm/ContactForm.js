@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
 
+//ставимо обмеження на тел та імя
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
@@ -20,15 +21,18 @@ const ContactFormSchema = Yup.object().shape({
       "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
     )
     .required('Required'),
+  
   phone: Yup.string()
     .min(9, 'Phone number must contain at least 9 symbols!')
     .max(13, 'Phone number must contain less than 13 symbols!')
     .required('Required'),
 });
 
+// прописуємо варіант якщо контак вже є у контактах, дод. в контакти
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+
   return (
     <Formik
       initialValues={{ name: '', phone: '' }}
@@ -38,15 +42,16 @@ export const ContactForm = () => {
           contact => contact.name.toLowerCase() === values.name.toLowerCase()
         );
 
+
         if (isContactInList) {
           alert(`${values.name} is already in contacts.`);
           return;
         }
-
         dispatch(addContact(values));
         actions.resetForm();
       }}
     >
+
         <FormAddContact>
         <FormLabel>
           Name

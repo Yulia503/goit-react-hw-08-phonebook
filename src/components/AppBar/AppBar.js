@@ -8,6 +8,8 @@ import { HeaderWrap, StyledHeader } from './AppBar.styled';
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
+  //верхня панель навігації
+  
   return (
     <StyledHeader>
       <Container>
@@ -18,4 +20,6 @@ export const AppBar = () => {
       </Container>
     </StyledHeader>
   );
+
+
 };

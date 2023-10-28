@@ -12,6 +12,7 @@ export const NavWrap = styled.nav`
 `;
 
 
+
 export const StyledNavLink = styled(NavLink)`
   padding-top: 30px;
   padding-bottom: 30px;
@@ -25,6 +26,7 @@ export const StyledNavLink = styled(NavLink)`
   text-transform: uppercase;
   color: #FFF5EE;
 
+  
   &:hover {
     color: #F4A460;
   }

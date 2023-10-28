@@ -13,8 +13,7 @@ export default function Home() {
       <Container>
         <SectionTitle>Phonebook</SectionTitle>
         <SectionText>
-          Please, register or sign in to create and manage your own list of
-          contacts
+          You welcome your contacten manager! Please, register or sign in to manage your own contacts
         </SectionText>
         <StyledHomeImg src={image} alt="phonebook" width={380} height={380} />
       </Container>

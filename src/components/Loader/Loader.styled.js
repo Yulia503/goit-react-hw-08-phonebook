@@ -9,6 +9,9 @@ export const Backdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.65);
   z-index: 1200;
+  transform: 'translate(-50%, -50%)',
+
+    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
