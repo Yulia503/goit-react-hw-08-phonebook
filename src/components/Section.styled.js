@@ -6,7 +6,7 @@ export const StyledSection = styled.section`
 `;
 
 export const StyledLoginSection = styled(StyledSection)`
-  background-color: #eac645;
+  background-color: none
 `;
 
 export const StyledContactsSection = styled(StyledLoginSection)``;
@@ -14,7 +14,7 @@ export const StyledContactsSection = styled(StyledLoginSection)``;
 export const SectionTitle = styled.h1`
   font-size: 72px;
   text-align: center;
-  color: #303030;
+  color: #800000;
   margin-bottom: 40px;
 `;
 
@@ -22,7 +22,7 @@ export const SectionSecondTitle = styled.h2`
   font-size: 42px;
   text-align: center;
   text-transform: uppercase;
-  color: #303030;
+  color: black;
   font-weight: 800;
   margin-bottom: 40px;
 `;
@@ -34,5 +34,5 @@ export const LoginTitle = styled(SectionSecondTitle)`
 export const SectionText = styled.p`
   font-size: 28px;
   text-align: center;
-  color: #303030;
+  color: black;
 `;

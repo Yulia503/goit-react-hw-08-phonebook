@@ -1,21 +1,22 @@
 import styled from 'styled-components';
 
 export const StyledForm = styled.form`
-  width: 579px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 700px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   padding-left: 15px;
   padding-right: 15px;
   margin-right: auto;
   margin-left: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 28px;
 
-  border-radius: 18px;
-  border: 2px solid #111;
-  background-color: #f6f6f6;
+
+  border-radius: 20px;
+  border: 2px solid black;
+  background-color: #CD853F;
 `;
 
 export const FormInput = styled.input`
@@ -46,7 +47,7 @@ export const FormBtn = styled.button`
   padding: 0;
   border: transparent;
   border-radius: 40px;
-  background-color: #111;
+  background-color: #800000;
 
   color: #f3f3f3;
   font-size: 18px;
@@ -59,7 +60,7 @@ export const FormBtn = styled.button`
   transition: background-color 250ms ease-in;
 
   &:is(:hover, :focus) {
-    background-color: #4f2ee8;
+    background-color: #FF4500;
   }
 `;
 
@@ -67,7 +68,7 @@ export const FormLabel = styled.label`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: #111;
+  color: black;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;

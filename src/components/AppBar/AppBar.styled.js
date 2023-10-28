@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-  background-color: rgb(17, 17, 17);
+  background-color: #8B4513;
 `;
 
 export const HeaderWrap = styled.div`
