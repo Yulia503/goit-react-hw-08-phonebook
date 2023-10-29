@@ -8,10 +8,12 @@ import {
 } from './ContactForm.styled';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
+import toast from 'react-hot-toast';
 
 //ставимо обмеження на тел та імя
+
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too Short!')
@@ -21,8 +23,7 @@ const ContactFormSchema = Yup.object().shape({
       "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
     )
     .required('Required'),
-  
-  phone: Yup.string()
+  number: Yup.string()
     .min(9, 'Phone number must contain at least 9 symbols!')
     .max(13, 'Phone number must contain less than 13 symbols!')
     .required('Required'),
@@ -32,21 +33,23 @@ const ContactFormSchema = Yup.object().shape({
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-
   return (
     <Formik
-      initialValues={{ name: '', phone: '' }}
+      initialValues={{ name: '', number: '' }}
       validationSchema={ContactFormSchema}
       onSubmit={(values, actions) => {
         const isContactInList = contacts.some(
           contact => contact.name.toLowerCase() === values.name.toLowerCase()
         );
 
-
         if (isContactInList) {
-          alert(`${values.name} is already in contacts.`);
+          toast.error(`${values.name} is already in contacts.`, {
+            duration: 5000,
+          });
+
           return;
         }
+
         dispatch(addContact(values));
         actions.resetForm();
       }}
@@ -61,8 +64,8 @@ export const ContactForm = () => {
 
        <FormLabel>
           Number
-          <FormField name="phone" type="tel" />
-          <ErrorMsgForm component="div" name="phone" />
+          <FormField name="number" type="tel" />
+          <ErrorMsgForm component="div" name="number" />
         </FormLabel>
         <AddBtn type="submit">Add contact</AddBtn>
       </FormAddContact>

@@ -31,8 +31,8 @@ export const register = createAsyncThunk(
   }
 );
 
-
 //*---------------------------------------
+
 
 
 export const logIn = createAsyncThunk(
@@ -88,10 +88,10 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('/users/current');
       return res.data;
     } catch (error) {
-      toast.error('Something went wrong, please try reloading the page', {
+      toast.error('Opps, something went wrong, please try reload the page and try again', {
         duration: 5000,
       });
-      
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
