@@ -3,8 +3,6 @@ import { setFilter } from 'redux/contacts/filterSlice';
 import { selectFilter } from 'redux/contacts/selectors';
 import { FilterInputBox, FilterText } from './ContactFilter.styled';
 
-
-
 export const ContactFilter = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
